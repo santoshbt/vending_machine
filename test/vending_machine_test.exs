@@ -35,11 +35,11 @@ defmodule VendingMachineTest do
       assert length(available_items) == 3
 
       assert available_items ==
-        [
-          %{item: "water bottle", price: "£1"},
-          %{item: "snacks", price: "£1"},
-          %{item: "chips", price: "£2"}
-        ]
+               [
+                 %{item: "water bottle", price: "£1"},
+                 %{item: "snacks", price: "£1"},
+                 %{item: "chips", price: "£2"}
+               ]
     end
   end
 
@@ -50,22 +50,25 @@ defmodule VendingMachineTest do
       selected_item_msg = VendingMachine.select_item(pid, "chips", "£2")
 
       assert selected_item_msg,
-            "Thank you, please collect the item in the tray"
+             "Thank you, please collect the item in the tray"
     end
 
     test "Select the unavailable item and insert coin", %{pid: pid} do
       add_items(pid)
 
       unavailable_item_msg = VendingMachine.select_item(pid, "snacks", "£1")
+
       assert unavailable_item_msg,
-        "Sorry, selected item is not in the stock. Please choose another. Thank you."
+             "Sorry, selected item is not in the stock. Please choose another. Thank you."
     end
 
     test "Select the item and insert more than the price of item", %{pid: pid} do
       add_items(pid)
 
       more_money_msg = VendingMachine.select_item(pid, "water bottle", "£2")
-      assert more_money_msg, "Thank you, please collect the item in the tray. You receive change £1 back"
+
+      assert more_money_msg,
+             "Thank you, please collect the item in the tray. You receive change £1 back"
     end
 
     test "Select the item and insert less than the price of item", %{pid: pid} do
