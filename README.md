@@ -19,13 +19,13 @@ vending_machine/lib/vending_machine.ex.
 
 Code run in iex examples
 -------------------------
-{:ok, pid} = VendingMachine.start_link
-VendingMachine.add(pid, "chips", "£2")
-VendingMachine.add(pid, "snacks", "£1")
-VendingMachine.view(pid)
-VendingMachine.select_item(pid, "chips", "£2")
-VendingMachine.view(pid)
-VendingMachine.select_item(pid, "snacks", "£2")
+- {:ok, pid} = VendingMachine.start_link
+- VendingMachine.add(pid, "chips", "£2")
+- VendingMachine.add(pid, "snacks", "£1")
+- VendingMachine.view(pid)
+- VendingMachine.select_item(pid, "chips", "£2")
+- VendingMachine.view(pid)
+- VendingMachine.select_item(pid, "snacks", "£2")
 
 Run test
 ---------
