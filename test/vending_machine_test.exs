@@ -15,7 +15,7 @@ defmodule VendingMachineTest do
   end
 
   describe "Vending machine booted up" do
-    test "start_link/1 starts a GenServer" do
+    test "start_link starts a GenServer" do
       {:ok, pid} = VendingMachine.start_link()
       assert is_pid(pid)
     end
