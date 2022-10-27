@@ -18,9 +18,12 @@ vending_machine/lib/vending_machine.ex.
 ##### Code run in iex examples
 
 - {:ok, pid} = VendingMachine.start_link
+##### Load machine with items and coin
 - VendingMachine.add(pid, "chips", "£2")
 - VendingMachine.add(pid, "snacks", "£1")
+##### View the available items
 - VendingMachine.view(pid)
+##### Select the item
 - VendingMachine.select_item(pid, "chips", "£2")
 - VendingMachine.view(pid)
 - VendingMachine.select_item(pid, "snacks", "£2")
